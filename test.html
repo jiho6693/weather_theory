@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blurry Web Page</title>
+  <style>
+    #rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    #rain .drop {
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: rainAnimation 2s linear infinite;
+    }
+
+    @keyframes rainAnimation {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var rainContainer = document.createElement("div");
+      rainContainer.id = "rain";
+
+      for (var i = 0; i < 100; i++) {
+        var drop = document.createElement("div");
+        drop.className = "drop";
+        drop.style.left = Math.random() * 100 + "%";
+        drop.style.animationDuration = (Math.random() + 0.5) + "s";
+        rainContainer.appendChild(drop);
+      }
+
+      document.body.appendChild(rainContainer);
+    });
+  </script>
+</head>
+<body>
+  <div style="position: relative;">
+    <p>This is box A.</p>
+    <br><br><br><br> <br><br><br><br>middle <br><br><br><br> <br><br><br><br> <br><br><br><br>
+    <p>This is box D.</p>
+  </div>
+</body>
+</html>
