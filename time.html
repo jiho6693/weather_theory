@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dynamic Background Color</title>
+    <style>
+      body {
+        background-color: #000000;
+        transition: background-color 0.5s ease;
+      }
+
+      .content {
+        width: 600px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Welcome to the Dynamic Background Color!</h1>
+      <p>This is an example of changing the background color based on the current time.</p>
+      <p id="time">Loading time...</p>
+    </div>
+
+    <script>
+      // 배경 색상을 변경하는 함수
+      function changeBackgroundColor() {
+        const currentTime = new Date();
+        const hours = currentTime.getHours();
+        const minutes = currentTime.getMinutes();
+        const seconds = currentTime.getSeconds();
+
+        // 시간을 이용하여 배경 색상 결정
+        const red = hours * (255 / 24);
+        const green = minutes * (255 / 60);
+        const blue = seconds * (255 / 60);
+
+        // 배경 색상 설정
+        document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      }
+
+      // 페이지 로드 시 배경 색상 변경
+      changeBackgroundColor();
+
+      // 1초마다 배경 색상 업데이트
+      setInterval(changeBackgroundColor, 1000);
+    </script>
+  </body>
+</html>
