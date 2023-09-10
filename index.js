@@ -4,6 +4,16 @@ let lon = "-71.418884";
 
 const url = 'https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + lon +'&units=imperial&appid='+ apiKey +'';
 
+
+
+
+
+
+
+
+
+
+
 function createRain(){
     var rainContainer = document.createElement("div");
     rainContainer.id = "rain";
@@ -120,7 +130,7 @@ function changeBackgroundColor3() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    setInterval(changeBackgroundColor, 6000); // 1분(60초)마다 배경색이 변경되도록 설정
+    setInterval(changeBackgroundColor, 12000); // 1분(60초)마다 배경색이 변경되도록 설정
 
     function changeBackgroundColor() {
       var now = new Date();
@@ -199,7 +209,7 @@ fetch(url)
     else if(weather === "Clouds"|| weather === "B" ){
         
 
-         document.querySelector('body').classList.add('blur');
+    document.querySelector('body').classList.add('blur');
     }
     else if(weather === "Clear"){
         console.log("not bad")
